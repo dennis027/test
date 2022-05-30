@@ -1,0 +1,27 @@
+
+ <form class="example-form"  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="text-center">
+  
+ 
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Name" name="name" [(ngModel)]="form.name" #name="ngModel" matInput type="text" >
+    </mat-form-field>
+<br>
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" name="email" [(ngModel)]="form.email" #email="ngModel" matInput type="text" >
+    </mat-form-field>
+    <br>
+<mat-form-field class="example-full-width">
+<input matInput placeholder="Subject" name="subject" [(ngModel)]="form.subject" #subject="ngModel" matInput type="text" >
+</mat-form-field>
+<br>
+<mat-form-field class="example-full-width">
+<input matInput placeholder="Message to Mwangaza" name="message" [(ngModel)]="form.message" #message="ngModel" matInput type="text" >
+</mat-form-field>
+<br>
+
+
+
+  <button mat-stroked-button color="accent" class="btn-block" matInput type="submit">Send Message</button>
+
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+</form>

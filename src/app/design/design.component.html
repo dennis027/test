@@ -6,18 +6,20 @@
       <th>Email</th>
       <th>Subject</th>
       <th>Message</th>
- 
+      <th>Update</th>
       <th>Delete</th>
 
     </tr>
     </thead>
     <tbody>
-      <tr *ngFor='let user of allUsers' >
+      <input type="text" [(ngModel)]="searchText" placeholder="search">
+      <tr *ngFor='let user of allUsers  | filter:searchText ' >
         
         <td>{{user.name}}</td>
         <td>{{user.email}}</td>
         <td>{{user.subject}}</td>
         <td>{{user.message}}</td>
+        <button mat-raised-button (click)="openDialog(user.id)">Pick one</button>
         <td><button type="button" (click)='deleteData(user.id)'>Delete</button></td>
 
      
@@ -26,4 +28,9 @@
   </table>  
   
   
-  
+  <!-- <input type="text" [(ngModel)]="searchText" placeholder="search">
+<ul>
+  <li *ngFor="let c of items | filter : searchText">
+    {{c.title}}
+  </li>
+</ul> -->

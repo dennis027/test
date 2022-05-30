@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders,HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { User } from './user';
 
 
-const CONTACT = "https://dennis027.herokuapp.com/";
+const CONTACT = "https://dennistry.herokuapp.com/";
 
 const httpOptions = {
   headers: new HttpHeaders ({'Content-Type':'application/json'})
@@ -14,6 +15,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ContactService {
+  
   private api = "https://dennistry.herokuapp.com/contact/";
   constructor(private httpClient:HttpClient,private http:HttpClient, private router:Router) { }
 
@@ -27,10 +29,13 @@ export class ContactService {
       name,email,subject,message
     },httpOptions)
   }
+
   deleteData (id: number): Observable<any[]> {
-    return this.httpClient.delete<any[]>(this.api + id);
+    return this.httpClient.delete<any[]>(this.api + id);  
   }
-  // getId(heroes: Hero[]): number {
-  //   return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
-  // }
+  
+  updateData(data: any, id: string) {
+    return this.httpClient.put(this.api + id, data);
+  }
+  
 }

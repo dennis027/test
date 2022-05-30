@@ -51,12 +51,16 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DesignComponent } from './design/design.component';
+import { UpdateComponent } from './update/update.component';
+import { SearchPipe } from './search-filter.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DesignComponent,
+    UpdateComponent,
+    SearchPipe,
 
   
 
