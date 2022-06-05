@@ -19,7 +19,8 @@
         <td>{{user.email}}</td>
         <td>{{user.subject}}</td>
         <td>{{user.message}}</td>
-        <button mat-raised-button (click)="openDialog(user.id)">Pick one</button>
+        <!-- <button mat-raised-button (click)="openDialog(user.id)">update</button> -->
+        <td><button type="button" (click)='updateData(user.id)'>Update</button></td>
         <td><button type="button" (click)='deleteData(user.id)'>Delete</button></td>
 
      
@@ -27,10 +28,31 @@
     </tbody>   
   </table>  
   
+
+
+  <form class="example-form" (ngSubmit)="updateDem  && onSubmit(data)" name="form" #f="ngForm" class="text-center">
   
-  <!-- <input type="text" [(ngModel)]="searchText" placeholder="search">
-<ul>
-  <li *ngFor="let c of items | filter : searchText">
-    {{c.title}}
-  </li>
-</ul> -->
+ 
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Your Name" name="name" [(ngModel)]="data.name" #name="ngModel" matInput type="text" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Your Email" name="email" [(ngModel)]="data.email" #location="ngModel" matInput type="text" required>
+      </mat-form-field>
+   <br>
+
+  <mat-form-field class="example-full-width">
+  <input matInput placeholder="Subject" name="subject" [(ngModel)]="data.subject" #subject="ngModel" matInput type="text" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+  <input matInput placeholder="Message to Dennis" name="message" [(ngModel)]="data.message" #message="ngModel" matInput type="text" required>
+  </mat-form-field>
+
+<br>
+  <button mat-stroked-button color="accent" class="btn-block" matInput type="submit">Send Message</button>
+
+
+</form>

@@ -28,16 +28,7 @@ form:any = {
   }
   onSubmit(): void{
     let {name,email,subject,message}= this.form;
-    this.contactService.updateData(name,email,/*subject,message*/).subscribe(
-      (data) => {
-        console.log(data)
-       
-       
-      },
-      (err) => {
-       console.log(err)
-        
-      });
+    this.contactService.updateData(name,email,/*subject,message*/)
     }
   onNoClick(): void {
     this.dialogRef.close();

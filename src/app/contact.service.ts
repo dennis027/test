@@ -34,8 +34,10 @@ export class ContactService {
     return this.httpClient.delete<any[]>(this.api + id);  
   }
   
-  updateData(data: any, id: string) {
-    return this.httpClient.put(this.api + id, data);
+  updateData(id: string,data:any) {
+    return this.http.put(this.api + id +'/', data).subscribe();
   }
-  
+//   updateData( id: string, data: any): Observable<any> {
+//     return this.http.put(`${this.api}/${id}`, data)
+// }
 }
