@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ContactService } from './contact.service';
-import * as $ from 'jquery';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,11 +12,7 @@ export class AppComponent {
   constructor(private contactService:ContactService) { }
 
  ngOnInit() {
-                //Toggle Click Function
-    $("#menu-toggle").click(function(e: { preventDefault: () => void; }) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
+
   }
 
 }
