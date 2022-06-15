@@ -29,14 +29,25 @@ export class DesignComponent implements OnInit {
   };
   // allUsers:any;
   constructor(private contactService:ContactService,public dialog: MatDialog) { }
-  openDialog(id:any): void {
+  openDialog(id:string): void {
+    
     const dialogRef = this.dialog.open(UpdateComponent, {
+      
       width: '250px',
     
+    
     });
-
+    this.userId=id;
+    let currentData = this.allUsers.find((p) =>{return p.id === id});
+    console.log(this.form)
+   this.form.setValue({
+     name: currentData!.name,
+     email: currentData!.email,
+     subject: currentData!.subject,
+     message: currentData!.message,
+   });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+   
     
     });
   }
